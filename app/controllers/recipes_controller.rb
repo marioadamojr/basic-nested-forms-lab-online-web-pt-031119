@@ -18,16 +18,12 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-    def person_params
-    params.require(:person).permit(
+    def recipe_params
+    params.require(:recipe).permit(
       :name,
-      addresses_attributes: [
-        :street_address_1,
-        :street_address_2,
-        :city,
-        :state,
-        :zipcode,
-        :address_type
+      ingredients_attributes: [
+        :name,
+        :quantity
       ]
     )
   end
